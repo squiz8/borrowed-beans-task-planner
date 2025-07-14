@@ -48,7 +48,6 @@ This project includes a lightweight frontend built with HTML and JavaScript (Fet
 
 ![Task Allocation Page](docs/screenshots/allocator.png)
 
-
 ---
 
 ## 🔌 API Testing with Swagger
@@ -59,7 +58,7 @@ FastAPI automatically generates an interactive Swagger UI for all API endpoints.
 - Task filtering
 - Allocation logic
 
-Visit [http://localhost:8000/docs](http://localhost:8000/docs) to explore.
+Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to explore.
 
 ---
 
@@ -83,7 +82,7 @@ pip install -r requirements.txt
 fastapi dev app/main.py
 ```
 
-Access: [http://localhost:8000](http://localhost:8000)
+Access: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
 
@@ -93,13 +92,13 @@ Access: [http://localhost:8000](http://localhost:8000)
 # Pull from DockerHub
 docker pull devsquiz/borrowed-beans-task-planner:latest
 
-# Run using Docker Compose
-docker compose up
+# Run using Docker
+docker run -p 8000:8000 devsquiz/borrowed-beans-task-planner:latest
 ```
 
 > ℹ️ The app uses an internal SQLite DB which is recreated each run for testing/demo purposes.
 
-Access: [http://localhost:8000](http://localhost:8000)
+Access: [http://127.0.0.1:8000](http://l127.0.0.1:8000)
 
 ---
 
@@ -113,7 +112,7 @@ This project supports **unit** tests using `pytest`.
 pytest tests/
 ```
 
-###  Unit Tests
+### Unit Tests
 
 Located in `tests/test_fibonacci.py`, `tests/test_knapsack.py`, and `tests/test_validators.py`:
 
