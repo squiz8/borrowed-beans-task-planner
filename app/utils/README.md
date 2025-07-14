@@ -41,7 +41,6 @@ We want to **maximize the total effort used** without exceeding the effort limit
 
 * [GeeksforGeeks: 0/1 Knapsack](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
 * [Educative: Knapsack in Python](https://www.educative.io/answers/what-is-the-knapsack-problem)
-* [MIT OpenCourseWare - Lecture on Knapsack](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/lecture-16-dynamic-programming-ii-0-1-knapsack/)
 
 ---
 

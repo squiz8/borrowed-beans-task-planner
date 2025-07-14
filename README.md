@@ -13,7 +13,7 @@ Built with **FastAPI**, **SQLite**, and **Docker**, the system supports both man
 - ✅ Add tasks via manual **form input** or **bulk upload (JSON file only)**
 - ✅ Filter tasks by team
 - ✅ Task prioritization based on `priority` and `updated_timestamp`
-- ✅ Allocate tasks weekly using a **0/1 Knapsack algorithm** (more details in app/utils)
+- ✅ Allocate tasks weekly using a **0/1 Knapsack algorithm** (more details in `app/utils`)
 - ✅ Frontend UI using HTML + JS (Fetch API)
 - ✅ Validations to prevent bad data entry:
 
@@ -25,6 +25,41 @@ Built with **FastAPI**, **SQLite**, and **Docker**, the system supports both man
 - ✅ Logging for task creation and allocation
 - ✅ Dockerized with support for containerized DB + backend
 - ✅ GitHub Actions CI/CD for running tests and pushing image to Docker Hub
+
+---
+
+## 🖼️ User Interface
+
+This project includes a lightweight frontend built with HTML and JavaScript (Fetch API). Users can:
+
+- Upload tasks via form or JSON file
+- Filter and view tasks
+- Allocate tasks weekly using an effort limit
+
+### Submit a Task
+
+![Submit a Task Form](docs/screenshots/submit.png)
+
+### All Tasks
+
+![All Tasks Page](docs/screenshots/tasks.png)
+
+### Weekly Task Allocator
+
+![Task Allocation Page](docs/screenshots/allocator.png)
+
+
+---
+
+## 🔌 API Testing with Swagger
+
+FastAPI automatically generates an interactive Swagger UI for all API endpoints. You can test:
+
+- Task creation (single or bulk)
+- Task filtering
+- Allocation logic
+
+Visit [http://localhost:8000/docs](http://localhost:8000/docs) to explore.
 
 ---
 
@@ -78,15 +113,15 @@ This project supports **unit** tests using `pytest`.
 pytest tests/
 ```
 
-### 🧪 Unit Tests
+###  Unit Tests
 
 Located in `tests/test_fibonacci.py`, `tests/test_knapsack.py`, and `tests/test_validators.py`:
 
 #### What we test:
 
-- 🔁 Fibonacci sequence is generated dynamically and capped at 100
-- 🎒 Knapsack respects effort limits and selects optimal task set
-- 🧼 Validation catches:
+- Fibonacci sequence is generated dynamically and capped at 100
+- Knapsack respects effort limits and selects optimal task set
+- Validation catches:
 
   - Future timestamps
   - Duplicates in file
@@ -114,17 +149,16 @@ Includes:
 
 ---
 
-## 🛠️ Suggestions for Future Enhancements (AWS-Focused)
+## Suggested Enhancements for Deployment
 
-If this app were to grow beyond MVP and be deployed in a real-world scenario, here are some AWS-based suggestions:
+If this MVP were to be deployed in a real-world environment, the following upgrades are recommended:
 
-- 🧱 **Use PostgreSQL via Amazon RDS**  
-  Switch from SQLite to Amazon RDS with PostgreSQL for a fully managed, scalable database with backups, security, and monitoring.
+- **Authentication** — Add user authentication (e.g., JWT or OAuth2) to secure the system.
+- **Database** — Switch from SQLite to **PostgreSQL** (e.g., Amazon RDS) for a production-ready relational DB.
+- **Deployment** — Deploy the app backend using:
 
-- ☁️ **Deploy the backend with AWS ECS (Fargate)**  
-  Containerize and deploy the FastAPI app using ECS Fargate — a serverless option for running containers without managing infrastructure.
+  - **AWS ECS Fargate** for containerized, serverless hosting
 
-- 🖥️ **Rebuild the UI and host with S3 + CloudFront**  
-  Convert the HTML UI to React or Vue, and host it as a static site using S3 (with caching via CloudFront for speed).
+- **Secrets Management** — Store credentials using **AWS Secrets Manager** or **Vault**.
 
-> ✨ These AWS-based upgrades are optional — but would bring the project closer to real production architecture.
+> These improvements are suggestions — many tools can solve these problems depending on team and infrastructure preference.
