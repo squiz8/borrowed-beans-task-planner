@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      li:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <div class="container-fluid justify-content-center">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0 me-4" href="#">
+          <img
+            src="images/beans.png"
+            alt="Borrowed Beans Logo"
+            height="50"
+            loading="lazy"
+          />
+        </a>
+
+        <!-- Static navbar links -->
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex flex-row gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tasks.html">Tasks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="allocator.html">Allocator</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <!-- Project Description -->
+          <div class="mb-4 text-center">
+            <h2 class="fw-bold">Borrowed Beans Task Manager</h2>
+            <p class="text-muted">
+              The Data Platform team at Borrowed Beans is now handling task
+              requests from across the company, from Grinders to Finance. This
+              tool helps organize, prioritize, and allocate tasks efficiently so
+              the team can stay focused and productive.
+              <br /><br />
+              You can submit new tasks manually or via JSON upload, view all
+              submitted tasks with sorting and filtering options, and allocate
+              work weekly based on available effort points.
+              <br /><br />
+              Ready to get started? Submit a task or browse existing requests.
+            </p>
+          </div>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="tasks.html" class="btn btn-outline-primary">View Tasks</a>
+            <a href="allocator.html" class="btn btn-primary">Allocate Work</a>
+          </div>
+
+          <!-- Form Card -->
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-center mb-4">Submit a Task</h5>
+
+              <form>
+                <!-- File Upload -->
+                <div class="mb-3">
+                  <label for="task-file" class="form-label"
+                    >Upload JSON File</label
+                  >
+                  <input
+                    class="form-control"
+                    type="file"
+                    id="task-file"
+                    name="task-file"
+                    accept=".json"
+                  />
+                </div>
+
+                <div class="text-center text-muted mb-3">— OR —</div>
+
+                <!-- Manual Inputs -->
+                <div id="manual-form">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      name="name"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="team" class="form-label">Team</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="team"
+                      name="team"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="description" class="form-label"
+                      >Description</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="description"
+                      name="description"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="effort" class="form-label">Effort</label>
+                    <select class="form-select" id="effort" name="effort">
+                      <option selected disabled>Select effort points</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="5">5</option>
+                      <option value="8">8</option>
+                      <option value="13">13</option>
+                      <option value="21">21</option>
+                      <option value="34">34</option>
+                      <option value="55">55</option>
+                      <option value="89">89</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="priority" class="form-label">Priority</label>
+                    <select class="form-select" id="priority" name="priority">
+                      <option selected disabled>Select priority</option>
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="updated_timestamp" class="form-label"
+                      >Updated Timestamp</label
+                    >
+                    <input
+                      type="datetime-local"
+                      class="form-control"
+                      id="updated_timestamp"
+                      name="updated_timestamp"
+                      max=""
+                    />
+                  </div>
+                </div>
+
+                <div class="d-grid mt-4">
+                  <button type="submit" class="btn btn-primary">
+                    Submit Task
+                  </button>
+                </div>
+                <!-- Response Message -->
+                <div
+                  id="response-message"
+                  class="mt-3 alert d-none"
+                  role="alert"
+                ></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted py-4 mt-5 border-top">
+      Made with ☕ by
+      <a
+        href="https://github.com/squiz8"
+        target="_blank"
+        class="text-decoration-none"
+        >Sam</a
+      >
+    </footer>
+
+    <!-- Footer -->
+
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+    ></script>
+    <script src="/scripts/main.js"></script>
+  </body>
+</html>
